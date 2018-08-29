@@ -1,0 +1,292 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.ServiceFabric.CommandLineParser</name>
+    </assembly>
+    <members>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute">
+            <summary>
+            Allows control of command line parsing.
+            Attach this attribute to instance fields of types used
+            as the destination of command line argument parsing.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute.#ctor(Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute"/> class.
+            </summary>
+            <param name="type"> Specifies the error checking to be done on the argument. </param>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute.Type">
+            <summary>
+            Gets the type of the command line argument.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute.DefaultShortName">
+            <summary>
+            Gets a value indicating whether an explicit short name was specified or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute.ShortName">
+            <summary>
+            Gets or sets the short name of the argument.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute.DefaultLongName">
+            <summary>
+            Gets a value indicating whether an explicit long name was specified for this argument or not.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute.LongName">
+            <summary>
+            Gets or sets the long name of the argument.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentAttribute.Description">
+            <summary>
+            Gets or sets the description of the command line argument
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentParser">
+            <summary>
+            Parser for command line arguments.
+            <para>
+            The parser specification is inferred from the instance fields of the object
+            specified as the destination of the parse.
+            Valid argument types are: <see cref="T:System.Int32"/>, <see cref="T:System.UInt32"/>, <see cref="T:System.String"/>, <see cref="T:System.Boolean"/>, enumerations
+            Also argument types of Array of the above types are also valid.
+            </para>
+            <para>
+            Error checking options can be controlled by adding a CommandLineArgumentAttribute
+            to the instance fields of the destination object.
+            </para>
+            At most one field may be marked with the DefaultCommandLineArgumentAttribute
+            indicating that arguments without a '-' or '/' prefix will be parsed as that argument.
+            <para>
+            If not specified then the parser will infer default options for parsing each
+            instance field. The default long name of the argument is the field name. The
+            default short name is the first character of the long name. Long names and explicitly
+            specified short names must be unique. Default short names will be used provided that
+            the default short name does not conflict with a long name or an explicitly
+            specified short name.
+            </para>
+            <para>
+            Arguments which are array types are collection arguments. Collection arguments can be specified multiple times.
+            </para>
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentParser.#ctor(System.Type,Microsoft.ServiceFabric.CommandLineParser.ErrorReporter)">
+            <summary>
+             Initializes a new instance of the <see cref="T:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentParser"/> class.
+            </summary>
+            <param name="argumentSpecification"> The type of object to  parse. </param>
+            <param name="reporter"> The destination for parse errors. </param>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentParser.Usage">
+            <summary>
+            Gets a user friendly usage string describing the command line argument syntax.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentParser.Parse(System.String[],System.Object)">
+            <summary>
+            Parses an argument list.
+            </summary>
+            <param name="args"> The arguments to parse. </param>
+            <param name="destination"> The destination of the parsed arguments. </param>
+            <returns> true if no parse errors were encountered. </returns>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType">
+            <summary>
+            Used to control parsing of command line arguments.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType.Required">
+            <summary>
+            Indicates that this field is required. An error will be displayed
+            if it is not present when parsing arguments.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType.Unique">
+            <summary>
+            Only valid in conjunction with Multiple.
+            Duplicate values will result in an error.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType.Multiple">
+            <summary>
+            Indicates that the argument may be specified more than once.
+            Only valid if the argument is a collection
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType.AtMostOnce">
+            <summary>
+            The default type for non-collection arguments.
+            The argument is not required, but an error will be reported if it is specified more than once.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType.LastOccurenceWins">
+            <summary>
+            For non-collection arguments, when the argument is specified more than
+            once no error is reported and the value of the argument is the last
+            value which occurs in the argument list.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType.MultipleUnique">
+            <summary>
+            The default type for collection arguments.
+            The argument is permitted to occur multiple times, but duplicate
+            values will cause an error to be reported.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.ErrorReporter">
+            <summary>
+            A delegate used in error reporting.
+            </summary>
+            <param name="message">Reported error message.</param>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.CommandLineUtility">
+            <summary>
+            Useful Stuff.
+            </summary>
+        </member>
+        <member name="F:Microsoft.ServiceFabric.CommandLineParser.CommandLineUtility.NewLine">
+            <summary>
+            The System Defined new line string.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.CommandLineUtility.ParseCommandLineArguments(System.String[],System.Object)">
+            <summary>
+            Parses Command Line Arguments.
+            Errors are output on Console.Error.
+            Use CommandLineArgumentAttributes to control parsing behavior.
+            </summary>
+            <param name="arguments"> The actual arguments. </param>
+            <param name="destination"> The resulting parsed arguments. </param>
+            <returns> true if no errors were detected. </returns>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.CommandLineUtility.ParseCommandLineArguments(System.String[],System.Object,Microsoft.ServiceFabric.CommandLineParser.ErrorReporter)">
+            <summary>
+            Parses Command Line Arguments.
+            Use CommandLineArgumentAttributes to control parsing behavior.
+            </summary>
+            <param name="arguments"> The actual arguments. </param>
+            <param name="destination"> The resulting parsed arguments. </param>
+            <param name="reporter"> The destination for parse errors. </param>
+            <returns> true if no errors were detected. </returns>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.CommandLineUtility.CommandLineArgumentsUsage(System.Type)">
+            <summary>
+            Returns a Usage string for command line argument parsing.
+            Use CommandLineArgumentAttributes to control parsing behavior.
+            </summary>
+            <param name="argumentType"> The type of the arguments to display usage for. </param>
+            <returns> Printable string containing a user friendly description of command line arguments. </returns>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.DefaultCommandLineArgumentAttribute">
+            <summary>
+            Indicates that this argument is the default argument.
+            '/' or '-' prefix only the argument value is specified.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.DefaultCommandLineArgumentAttribute.#ctor(Microsoft.ServiceFabric.CommandLineParser.CommandLineArgumentType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceFabric.CommandLineParser.DefaultCommandLineArgumentAttribute"/> class.
+            </summary>
+            <param name="type"> Specifies the error checking to be done on the argument. </param>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.Indent">
+            <summary>
+            Structure that represents the current indentation level.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.Indent.#ctor(Microsoft.ServiceFabric.CommandLineParser.IndentedWriter,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceFabric.CommandLineParser.Indent"/> struct.
+            </summary>
+            <param name="writer">The writer for the indent.</param>
+            <param name="indent">The indent level.</param>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.Indent.Dispose">
+            <summary>
+            Disposes the writer and releases all resources.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.IndentedWriter">
+            <summary>
+            Stream which writes at different indents.
+            </summary>
+        </member>
+        <member name="M:Microsoft.ServiceFabric.CommandLineParser.IndentedWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.ServiceFabric.CommandLineParser.IndentedWriter"/> class.
+            </summary>
+            <param name="stream">The stream on which write the indented output.</param>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.IndentedWriter.NewLine">
+            <summary>
+            Gets the value of NewLine that includes the space for the current indent level.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.IndentedWriter.Indent">
+            <summary>
+            Gets or sets the number of spaces to indent.
+            </summary>
+        </member>
+        <member name="T:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_BadArgumentValue">
+            <summary>
+              Looks up a localized string similar to &apos;{0}&apos; is not a valid value for the &apos;{1}&apos; command line option.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_CannotOpenCommandLineArgumentFile">
+            <summary>
+              Looks up a localized string similar to Error: Can&apos;t open command line argument file &apos;{0}&apos; : &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_DuplicateArgumentValue">
+            <summary>
+              Looks up a localized string similar to Duplicate &apos;{0}&apos; argument &apos;{1}&apos;.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_DuplicateCommandLineArgument">
+            <summary>
+              Looks up a localized string similar to Duplicate &apos;{0}&apos; argument.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_MissingRequiredArgument">
+            <summary>
+              Looks up a localized string similar to Missing required argument &apos;/&lt;{0}&gt;&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_MissingRequiredDefaultArgument">
+            <summary>
+              Looks up a localized string similar to Missing required default argument &apos;&lt;{0}&gt;&apos;..
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_UnbalancedSlashes">
+            <summary>
+              Looks up a localized string similar to Error: Unbalanced &apos;\&quot;&apos; in command line argument file &apos;{0}&apos;.
+            </summary>
+        </member>
+        <member name="P:Microsoft.ServiceFabric.CommandLineParser.CommandLineParserSR.Error_UnrecognizedCommandLineArgument">
+            <summary>
+              Looks up a localized string similar to Unrecognized command line argument &apos;{0}&apos;.
+            </summary>
+        </member>
+    </members>
+</doc>
