@@ -32,6 +32,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ServiceFabric.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ServiceFabric.Client.Http.1.0.0-preview61\lib\netstandard2.0\Microsoft.ServiceFabric.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ServiceFabric.Client.Http, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ServiceFabric.Client.Http.1.0.0-preview61\lib\netstandard2.0\Microsoft.ServiceFabric.Client.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ServiceFabric.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ServiceFabric.Client.Http.1.0.0-preview61\lib\netstandard2.0\Microsoft.ServiceFabric.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,12 +60,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="$(PkgSF_ClientLib_SeaBreeze)\lib\Microsoft.ServiceFabric.Client.dll" />
-    <Reference Include="$(PkgSF_ClientLib_SeaBreeze)\lib\Microsoft.ServiceFabric.Client.Http.dll" />
-    <Reference Include="$(PkgSF_ClientLib_SeaBreeze)\lib\Microsoft.ServiceFabric.Common.dll" />
-    <Reference Include="$(PkgSF_ClientLib_SeaBreeze)\lib\Newtonsoft.Json.dll" />
+    <Reference Include="\lib\Microsoft.ServiceFabric.Client.dll" />
+    <Reference Include="\lib\Microsoft.ServiceFabric.Client.Http.dll" />
+    <Reference Include="\lib\Microsoft.ServiceFabric.Common.dll" />
+    <Reference Include="\lib\Newtonsoft.Json.dll" />
     <Reference Include="$(PkgServiceFabric_Swagger_Tools)\bin\\Microsoft.ServiceFabric.CommandLineParser\\Microsoft.ServiceFabric.CommandLineParser.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
