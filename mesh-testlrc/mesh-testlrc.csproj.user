@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>-clusterurl:"http://jejarry-testlrc.centralus.cloudapp.azure.com:3030" -clusterconnectionurl:"https://jejarry-testlrc.centralus.cloudapp.azure.com:19080" -certlocation:C:\Users\jejarry\Downloads\jejarry-lrc-jejarry-lrc-20180820.pfx -servercertthumbprint:561D35769884F6A5F91293D8F44B0FAACE7772AE -primaryappresourcefile:D:\mesh_Port3030_Windows_File.json -secondaryappresourcefile:D:\mesh_Port3030_Windows_File_2.json</StartArguments>
-  </PropertyGroup>
-</Project>

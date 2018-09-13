@@ -115,3 +115,8 @@ D:\sourcecode\WindowsFabric\src\test\current\source\meshLRC\simpleTest\mesh-test
 D:\sourcecode\WindowsFabric\src\test\current\source\meshLRC\simpleTest\mesh-testlrc\mesh-testlrc\bin\Debug\Microsoft.ServiceFabric.CommandLineParser.xml
 D:\sourcecode\WindowsFabric\src\test\current\source\meshLRC\simpleTest\mesh-testlrc\mesh-testlrc\obj\Debug\mesh-testlrc.exe.config
 D:\sourcecode\WindowsFabric\src\test\current\source\meshLRC\simpleTest\mesh-testlrc\mesh-testlrc\obj\Debug\mesh-testlrc.csproj.CopyComplete
+C:\Repos\mesh-lrc-test\mesh-testlrc\obj\Debug\mesh-testlrc.csprojAssemblyReference.cache
+C:\Repos\mesh-lrc-test\mesh-testlrc\obj\Debug\mesh-testlrc.csproj.CoreCompileInputs.cache
+C:\Repos\mesh-lrc-test\mesh-testlrc\obj\Debug\mesh-testlrc.exe
+C:\Repos\mesh-lrc-test\mesh-testlrc\obj\Debug\mesh-testlrc.pdb
+C:\Repos\mesh-lrc-test\mesh-testlrc\obj\Debug\mesh-testlrc.exe.config
