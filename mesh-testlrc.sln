@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "FrontendServices", "FrontendServices\FrontendServices.pyproj", "{FC43706F-6351-4E3C-B2AA-B6453190C336}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "BackendServices", "BackendServices\BackendServices.pyproj", "{857C4E10-27E7-4F99-8FD4-862ACCA01C9F}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "volumeServices", "volumeServices\volumeServices.pyproj", "{05A61217-A45D-48DA-A685-F46868B5BCF5}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BD23DC19-8033-4F40-8705-D915B54CFB7D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC43706F-6351-4E3C-B2AA-B6453190C336}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC43706F-6351-4E3C-B2AA-B6453190C336}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC43706F-6351-4E3C-B2AA-B6453190C336}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC43706F-6351-4E3C-B2AA-B6453190C336}.Release|Any CPU.Build.0 = Release|Any CPU
+		{857C4E10-27E7-4F99-8FD4-862ACCA01C9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{857C4E10-27E7-4F99-8FD4-862ACCA01C9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{857C4E10-27E7-4F99-8FD4-862ACCA01C9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{857C4E10-27E7-4F99-8FD4-862ACCA01C9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05A61217-A45D-48DA-A685-F46868B5BCF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05A61217-A45D-48DA-A685-F46868B5BCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05A61217-A45D-48DA-A685-F46868B5BCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05A61217-A45D-48DA-A685-F46868B5BCF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD23DC19-8033-4F40-8705-D915B54CFB7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD23DC19-8033-4F40-8705-D915B54CFB7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD23DC19-8033-4F40-8705-D915B54CFB7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD23DC19-8033-4F40-8705-D915B54CFB7D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C79EA9F6-AE25-436B-9726-611D08E11AC5}
+	EndGlobalSection
+EndGlobal
